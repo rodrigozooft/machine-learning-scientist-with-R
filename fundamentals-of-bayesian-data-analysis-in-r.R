@@ -51,3 +51,33 @@ sum(posterior > 0.07)
 
 # Calculate the probability
 sum(posterior > 0.07) / length(posterior)
+
+# The generative zombie drug model
+
+# Set parameters
+prop_success <- 0.42
+n_zombies <- 100
+
+# Simulating data
+data <- c()
+for(zombie in 1:n_zombies) {
+  data[zombie] <- runif(1, min = 0, max = 1) < prop_success
+}
+data <- as.numeric(data)
+data
+
+# The generative zombie drug model
+
+# Set parameters
+prop_success <- 0.42
+n_zombies <- 100
+
+# Simulating data
+data <- c()
+for(zombie in 1:n_zombies) {
+  data[zombie] <- runif(1, min = 0, max = 1) < prop_success
+}
+
+# Count cured
+data <- sum(data)
+data
