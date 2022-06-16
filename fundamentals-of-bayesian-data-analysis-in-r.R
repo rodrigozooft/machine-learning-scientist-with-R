@@ -14,3 +14,40 @@ head(posterior)
 
 # Edit the histogram
 hist(posterior, breaks = 30, xlim = c(0, 1), col = 'palegreen4')
+
+data = c(1, 0, 0, 1, 0, 0,
+         0, 0, 0, 0, 0, 0, 0)
+posterior <- prop_model(data)
+hist(posterior, breaks = 30, xlim = c(0, 1), col = "palegreen4")
+
+# Calculate the median
+median(posterior)
+
+data = c(1, 0, 0, 1, 0, 0,
+         0, 0, 0, 0, 0, 0, 0)
+posterior <- prop_model(data)
+hist(posterior, breaks = 30, xlim = c(0, 1), col = "palegreen4")
+
+# Calculate some measures of interest using the posterior
+median(posterior)
+
+# Calculate the credible interval
+quantile(posterior, c(0.05, 0.95))
+
+
+data = c(1, 0, 0, 1, 0, 0,
+         0, 0, 0, 0, 0, 0, 0)
+posterior <- prop_model(data)
+hist(posterior, breaks = 30, xlim = c(0, 1), col = "palegreen4")
+
+# Calculate the median
+median(posterior)
+
+# Calculate the credible interval
+quantile(posterior, c(0.05, 0.95))
+
+# Calculate the sum
+sum(posterior > 0.07)
+
+# Calculate the probability
+sum(posterior > 0.07) / length(posterior)
