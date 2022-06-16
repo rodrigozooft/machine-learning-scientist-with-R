@@ -81,3 +81,9 @@ for(zombie in 1:n_zombies) {
 # Count cured
 data <- sum(data)
 data
+
+# Chenge the parameters
+rbinom(n = 1, size = 100, prob = 0.42)
+
+# Chenge the parameters
+rbinom(n = 200, size = 100, prob = 0.42)
