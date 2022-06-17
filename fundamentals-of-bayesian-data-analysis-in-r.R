@@ -141,3 +141,24 @@ beta_sample <- rbeta(n = 1000000, shape1 = 100, shape2 = 20)
 
 # Visualize the results
 hist(beta_sample)
+
+n_draws <- 100000
+n_ads_shown <- 100
+
+# Change the prior on proportion_clicks
+proportion_clicks <- 
+  rbeta(n_draws, shape1 = 5, shape2 = 95)
+n_visitors <- 
+  rbinom(n_draws, size = n_ads_shown, 
+         prob = proportion_clicks)
+prior <- 
+  data.frame(proportion_clicks, n_visitors)
+posterior <- 
+  prior[prior$n_visitors == 13, ]
+
+# This plots thea prior and the posterior in the same plot
+par(mfcol = c(2, 1))
+hist(prior$proportion_clicks, 
+     xlim = c(0, 0.25))
+hist(posterior$proportion_clicks, 
+     xlim = c(0, 0.25))
