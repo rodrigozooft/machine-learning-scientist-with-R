@@ -208,3 +208,21 @@ posterior$text_profit <- posterior$text_prop * visitor_spend - text_cost
 
 hist(posterior$video_profit)
 hist(posterior$text_profit)
+
+# Add the column posterior$profit_diff
+posterior$profit_diff <- posterior$video_profit - posterior$text_profit
+
+# Visualize posterior$profit_diff
+hist(posterior$profit_diff)
+
+# Add the column posterior$profit_diff
+posterior$profit_diff <- posterior$video_profit - posterior$text_profit
+
+# Visualize posterior$profit_diff
+hist(posterior$profit_diff)
+
+# Calculate a "best guess" for the difference in profits
+median(posterior$profit_diff)
+
+# Calculate the probability that text ads are better than video ads
+mean(posterior$profit_diff < 0)
