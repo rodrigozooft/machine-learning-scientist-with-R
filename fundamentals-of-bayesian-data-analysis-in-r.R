@@ -87,3 +87,21 @@ rbinom(n = 1, size = 100, prob = 0.42)
 
 # Chenge the parameters
 rbinom(n = 200, size = 100, prob = 0.42)
+
+# Fill in the parameters
+n_samples <- 100000
+n_ads_shown <- 100
+proportion_clicks <- 0.1
+n_visitors <- rbinom(n_samples, size = n_ads_shown, 
+                     prob = proportion_clicks)
+
+# Visualize n_visitors
+hist(n_visitors)
+
+n_samples <- 100000
+n_ads_shown <- 100
+
+# Update proportion_clicks
+proportion_clicks <- runif(n = n_samples, min = 0.0, max = 0.2)
+
+n_visitors <- rbinom(n = n_samples, size = n_ads_shown, prob = proportion_clicks)
