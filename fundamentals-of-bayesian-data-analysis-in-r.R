@@ -105,3 +105,17 @@ n_ads_shown <- 100
 proportion_clicks <- runif(n = n_samples, min = 0.0, max = 0.2)
 
 n_visitors <- rbinom(n = n_samples, size = n_ads_shown, prob = proportion_clicks)
+
+# Create the prior data frame
+prior <- data.frame(proportion_clicks, n_visitors)
+
+# Examine the prior data frame
+head(prior)
+
+# Create the posterior data frame
+posterior <- prior[prior$n_visitors == 13, ]
+
+# Create the prior data frame
+prior <- data.frame(proportion_clicks, n_visitors)
+
+hist(posterior$proportion_clicks)
