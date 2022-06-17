@@ -193,3 +193,18 @@ median(posterior$prop_diff)
 
 # Calculate the proportion
 mean(posterior$prop_diff > 0)
+
+visitor_spend <- 2.53
+video_cost <- 0.25
+text_cost <- 0.05
+
+# Add the column posterior$video_profit
+posterior$video_profit <- posterior$video_prop * visitor_spend - video_cost
+
+# Add the column posterior$text_profit
+posterior$text_profit <- posterior$text_prop * visitor_spend - text_cost
+
+# Visualize the video_profit and text_profit columns
+
+hist(posterior$video_profit)
+hist(posterior$text_profit)
