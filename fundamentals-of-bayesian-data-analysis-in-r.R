@@ -119,3 +119,19 @@ posterior <- prior[prior$n_visitors == 13, ]
 prior <- data.frame(proportion_clicks, n_visitors)
 
 hist(posterior$proportion_clicks)
+
+# Assign posterior to a new variable called prior
+prior <- posterior
+
+# Take a look at the first rows in prior
+head(prior)
+
+# Replace prior$n_visitors with a new sample and visualize the result
+n_samples <-  nrow(prior)
+n_ads_shown <- 100
+prior$n_visitors <- rbinom(n_samples, size = n_ads_shown, prob = prior$proportion_clicks)
+hist(prior$n_visitors)
+
+# Calculate the probability that you will get 5 or more visitors
+
+sum(prior$n_visitors >= 5) / length(prior$n_visitors)
