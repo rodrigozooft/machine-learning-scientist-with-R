@@ -135,3 +135,9 @@ hist(prior$n_visitors)
 # Calculate the probability that you will get 5 or more visitors
 
 sum(prior$n_visitors >= 5) / length(prior$n_visitors)
+
+# Modify the parameters
+beta_sample <- rbeta(n = 1000000, shape1 = 100, shape2 = 20)
+
+# Visualize the results
+hist(beta_sample)
