@@ -226,3 +226,14 @@ median(posterior$profit_diff)
 
 # Calculate the probability that text ads are better than video ads
 mean(posterior$profit_diff < 0)
+
+# Simulate from a Poisson distribution and visualize the result
+x <- rpois(n = 10000, lambda = 3)
+hist(x)
+
+# Simulate from a Poisson distribution and visualize the result
+x <- rpois(n = 10000, lambda = 11.5)
+hist(x)
+
+# Calculate the probability of break-even
+mean(x >= 15)
