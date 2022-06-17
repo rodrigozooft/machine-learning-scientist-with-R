@@ -162,3 +162,34 @@ hist(prior$proportion_clicks,
      xlim = c(0, 0.25))
 hist(posterior$proportion_clicks, 
      xlim = c(0, 0.25))
+
+# Define parameters
+n_draws <- 100000
+n_ads_shown <- 100
+proportion_clicks <- runif(n_draws, min = 0.0, max = 0.2)
+n_visitors <- rbinom(n = n_draws, size = n_ads_shown, 
+                     prob = proportion_clicks)
+prior <- data.frame(proportion_clicks, n_visitors)
+
+# Create the posteriors for video and text ads
+posterior_video <- prior[prior$n_visitors == 13, ]
+posterior_text <-  prior[prior$n_visitors == 6, ]
+
+# Visualize the posteriors
+hist(posterior_video$proportion_clicks, xlim = c(0, 0.25))
+hist(posterior_text$proportion_clicks, xlim = c(0, 0.25))
+
+posterior <- data.frame(video_prop = posterior_video$proportion_clicks[1:4000],
+                        text_prop = posterior_text$proportion_click[1:4000])
+
+# Calculate the posterior difference: video_prop - text_prop
+posterior$prop_diff <- posterior$video_prop - posterior$text_prop 
+
+# Visualize prop_diff
+hist(posterior$prop_diff)
+
+# Calculate the median of prop_diff
+median(posterior$prop_diff)
+
+# Calculate the proportion
+mean(posterior$prop_diff > 0)
