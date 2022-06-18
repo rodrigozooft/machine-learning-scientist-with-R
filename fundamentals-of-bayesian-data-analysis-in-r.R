@@ -272,3 +272,23 @@ n_visitors <- rbinom(n = 99999,
     size = n_ads_shown, prob = proportion_clicks)
 prob_13_visitors <- dbinom(13, n_ads_shown, proportion_clicks)
 prob_13_visitors
+
+# Change the code according to the instructions
+n_ads_shown <- 100
+proportion_clicks <- seq(0, 1, by = 0.01)
+n_visitors <- 13
+prob <- dbinom(n_visitors, 
+    size = n_ads_shown, prob = proportion_clicks)
+prob
+
+plot(proportion_clicks, prob, type = "h")
+
+# Change the code according to the instructions
+n_ads_shown <- 100
+proportion_clicks <- seq(0, 1, by = 0.01)
+n_visitors <- 13
+prob <- dbinom(n_visitors, 
+    size = n_ads_shown, prob = proportion_clicks)
+prob
+
+plot(proportion_clicks, prob, type = "h")
