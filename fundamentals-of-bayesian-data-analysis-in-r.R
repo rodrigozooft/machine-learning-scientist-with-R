@@ -390,4 +390,17 @@ pred_iq <- rnorm(10000, mean = pars_sample$mu,
                  sd = pars_sample$sigma)
 
 # Visualize pred_iq
-hist(pred_iq)
+hist(pred_iq) 
+
+# The IQ of zombies on a regular diet and a brain based diet.
+iq_brains <- c(44, 52, 42, 66, 53, 42, 55, 57, 56, 51)
+iq_regular <- c(55, 44, 34, 18, 51, 40, 40, 49, 48, 46)
+
+# Calculate the mean difference in IQ between the two groups
+mean(iq_brains) - mean(iq_regular)
+
+# Fit the BEST model to the data from both groups
+library(BEST)
+best_posterior <- BESTmcmc(iq_brains, iq_regular)
+
+plot(best_posterior)
