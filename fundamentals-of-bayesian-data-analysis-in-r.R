@@ -384,3 +384,10 @@ hist(pars_sample$mu, 100, col = 'blue')
 
 # Calculate quantiles
 quantile(pars_sample$mu, c(0.025, 0.5, 0.975))
+
+head(pars_sample)
+pred_iq <- rnorm(10000, mean = pars_sample$mu, 
+                 sd = pars_sample$sigma)
+
+# Visualize pred_iq
+hist(pred_iq)
