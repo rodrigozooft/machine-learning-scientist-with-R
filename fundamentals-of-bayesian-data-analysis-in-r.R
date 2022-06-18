@@ -249,3 +249,15 @@ posterior <- prior[prior$n_visitors == 19, ]
 # Visualize mean_clicks
 hist(prior$mean_clicks)
 hist(posterior$mean_clicks)
+
+# Change the model according to instructions
+n_draws <- 100000
+mean_clicks <- runif(n_draws, min = 0, max = 80)
+n_visitors <- rpois(n = n_draws, mean_clicks)
+
+prior <- data.frame(mean_clicks, n_visitors)
+posterior <- prior[prior$n_visitors == 19, ]
+
+# Visualize mean_clicks
+hist(prior$mean_clicks)
+hist(posterior$mean_clicks)
