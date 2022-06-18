@@ -261,3 +261,6 @@ posterior <- prior[prior$n_visitors == 19, ]
 # Visualize mean_clicks
 hist(prior$mean_clicks)
 hist(posterior$mean_clicks)
+
+# Calculate the probability of picking four aces in a row
+prob_to_draw_four_aces <- 4 / 52 * 3 / 51 * 2 / 50 * 1 / 49
