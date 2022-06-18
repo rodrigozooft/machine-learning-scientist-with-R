@@ -264,3 +264,11 @@ hist(posterior$mean_clicks)
 
 # Calculate the probability of picking four aces in a row
 prob_to_draw_four_aces <- 4 / 52 * 3 / 51 * 2 / 50 * 1 / 49
+
+# Rewrite this code so that it uses dbinom instead of rbinom
+n_ads_shown <- 100
+proportion_clicks <- 0.1
+n_visitors <- rbinom(n = 99999, 
+    size = n_ads_shown, prob = proportion_clicks)
+prob_13_visitors <- dbinom(13, n_ads_shown, proportion_clicks)
+prob_13_visitors
