@@ -336,3 +336,19 @@ pars$likelihood <- dbinom(pars$n_visitors,
 pars$probability <- pars$likelihood * pars$prior
 pars$probability <- pars$probability / sum(pars$probability)
 plot(pars$proportion_clicks, pars$probability, type = "h")
+
+# Assign mu and sigma
+mu <- 3164
+sigma <- 572
+
+weight_distr <- rnorm(n = 100000, mean = mu, sd = sigma)
+hist(weight_distr, 60, xlim = c(0, 6000), col = "lightgreen")
+
+# Create weight
+weight <- seq(0, 6000, by = 100)
+
+# Calculate likelihood
+likelihood <- dnorm(weight, mu, sigma)
+
+# Plot the distribution of weight
+plot(x = weight, y = likelihood, type = 'h')
