@@ -305,3 +305,21 @@ pars$likelihood <- dbinom(pars$n_visitors,
 # Add the column pars$probability and normalize it
 pars$probability <- (pars$likelihood * pars$prior)
 pars$probability <- pars$probability / sum(pars$probability)
+
+n_ads_shown <- 100
+proportion_clicks <- seq(0, 1, by = 0.01)
+n_visitors <- seq(0, 100, by = 1)
+pars <- expand.grid(proportion_clicks = proportion_clicks,
+                    n_visitors = n_visitors)
+pars$prior <- dunif(pars$proportion_clicks, min = 0, max = 0.2)
+pars$likelihood <- dbinom(pars$n_visitors, 
+    size = n_ads_shown, prob = pars$proportion_clicks)
+pars$probability <- pars$likelihood * pars$prior
+pars$probability <- pars$probability / sum(pars$probability)
+
+# Condition on the data 
+pars <- pars[pars$n_visitors == 6, ]
+# Normalize again
+pars$probability <- pars$probability / sum(pars$probability)
+# Plot the posterior pars$probability
+plot(x = pars$proportion_clicks, y = pars$probability, type = 'h')
