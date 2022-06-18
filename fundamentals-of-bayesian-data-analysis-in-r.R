@@ -370,3 +370,17 @@ for(i in 1:nrow(pars)) {
 # Calculate the probability of each parameter combination
 pars$probability <- pars$likelihood * pars$prior
 pars$probability <- pars$probability / sum(pars$probability)
+
+head(pars)
+sample_indices <- sample( nrow(pars), size = 10000,
+    replace = TRUE, prob = pars$probability)
+head(sample_indices)
+
+# Sample from pars to calculate some new measures
+pars_sample <- pars[sample_indices, c("mu", "sigma")]
+
+# Visualize the mean IQ
+hist(pars_sample$mu, 100, col = 'blue')
+
+# Calculate quantiles
+quantile(pars_sample$mu, c(0.025, 0.5, 0.975))
