@@ -404,3 +404,18 @@ library(BEST)
 best_posterior <- BESTmcmc(iq_brains, iq_regular)
 
 plot(best_posterior)
+
+# The IQ of zombies given a regular diet and a brain based diet.
+iq_brains <- c(44, 52, 42, 66, 53, 42, 55, 57, 56, 51)
+iq_regular <- c(55, 44, 34, 18, 51, 40, 40, 49, 48, 150)
+
+# Modify the data above and calculate the difference in means
+mean(iq_brains) - mean(iq_regular)
+
+# Fit the BEST model to the modified data and plot the result
+
+library(BEST)
+
+best_posterior <- BESTmcmc(iq_brains, iq_regular)
+
+plot(best_posterior)
