@@ -292,3 +292,16 @@ prob <- dbinom(n_visitors,
 prob
 
 plot(proportion_clicks, prob, type = "h")
+
+n_ads_shown <- 100
+proportion_clicks <- seq(0, 1, by = 0.01)
+n_visitors <- seq(0, 100, by = 1)
+pars <- expand.grid(proportion_clicks = proportion_clicks,
+                    n_visitors = n_visitors)
+pars$prior <- dunif(pars$proportion_clicks, min = 0, max = 0.2)
+pars$likelihood <- dbinom(pars$n_visitors, 
+    size = n_ads_shown, prob = pars$proportion_clicks)
+
+# Add the column pars$probability and normalize it
+pars$probability <- (pars$likelihood * pars$prior)
+pars$probability <- pars$probability / sum(pars$probability)
