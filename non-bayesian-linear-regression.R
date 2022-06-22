@@ -83,3 +83,17 @@ inform_prior <- stan_glm(popularity ~ song_age, data = songs,
 
 # Print the prior summary
 prior_summary(inform_prior)
+
+# Estimate the model with a new `adapt_delta`
+adapt_model <- stan_glm(popularity ~ song_age, data = songs,
+  control = list(adapt_delta = 0.99))
+
+# View summary
+summary(adapt_model)
+
+# Estimate the model with a new `max_treedepth`
+tree_model <- stan_glm(popularity ~ song_age, data = songs,
+  control = list(max_treedepth = 15))
+
+# View summary
+summary(tree_model)
