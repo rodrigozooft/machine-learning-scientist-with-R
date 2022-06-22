@@ -50,3 +50,12 @@ stan_model <- stan_glm(popularity ~ song_age, data = songs)
 
 # Print a summary of the prior distributions
 prior_summary(stan_model)
+
+# Calculate the adjusted scale for the intercept
+10 * sd(songs$popularity)
+
+# Calculate the adjusted scale for `song_age`
+(2.5 / sd(songs$song_age)) * sd(songs$popularity)
+
+# Calculate the adjusted scale for `valence`
+(2.5 / sd(songs$valence)) * sd(songs$popularity)
