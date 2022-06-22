@@ -97,3 +97,22 @@ tree_model <- stan_glm(popularity ~ song_age, data = songs,
 
 # View summary
 summary(tree_model)
+
+# Print the R-squared from the linear model
+lm_summary$r.squared
+
+# Calulate sums of squares
+ss_res <- var(residuals(lm_model))
+ss_fit <- var(fitted(lm_model))
+
+# Calculate the R-squared
+1 - (ss_res / (ss_res + ss_fit))
+
+# Save the variance of residulas
+ss_res <- var(residuals(stan_model))
+
+# Save the variance of fitted values
+ss_fit <- var(fitted(stan_model))
+
+# Calculate the R-squared
+1 - (ss_res / (ss_res + ss_fit))
