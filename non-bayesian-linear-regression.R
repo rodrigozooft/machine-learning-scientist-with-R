@@ -30,3 +30,17 @@ posterior_interval(stan_model, prob = 0.95)
 
 # Create the 80% credible intervals
 posterior_interval(stan_model, prob = 0.8)
+
+# 3 chains, 1000 iterations, 500 warmup
+model_3chains <- stan_glm(popularity ~ song_age, data = songs,
+    chains = 3, iter = 1000, warmup = 500)
+
+# Print a summary of model_3chains
+summary(model_3chains)
+
+# 2 chains, 100 iterations, 50 warmup
+model_2chains <- stan_glm(popularity ~ song_age, data = songs,
+    chains = 2, iter = 100, warmup = 50)
+
+# Print a summary of model_2chains
+summary(model_2chains)
