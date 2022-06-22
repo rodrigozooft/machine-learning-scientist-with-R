@@ -12,3 +12,12 @@ summary(lm_model)
 
 # Print a tidy summary of the coefficients
 tidy(lm_model)
+
+# Create the model here
+stan_model <- stan_glm(popularity ~ song_age, data = songs)
+
+# Produce the summary
+summary(stan_model)
+
+# Print a tidy summary of the coefficients
+tidy(stan_model)
