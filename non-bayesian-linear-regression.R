@@ -76,3 +76,10 @@ flat_prior <- stan_glm(popularity ~  song_age, data = songs,
 
 # Print a prior summary
 prior_summary(flat_prior)
+
+# Estimate the model with an informative prior
+inform_prior <- stan_glm(popularity ~ song_age, data = songs,
+    prior = normal(location = 20, scale = 0.1, autoscale = FALSE))
+
+# Print the prior summary
+prior_summary(inform_prior)
