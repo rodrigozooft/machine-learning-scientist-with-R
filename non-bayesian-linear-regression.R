@@ -59,3 +59,13 @@ prior_summary(stan_model)
 
 # Calculate the adjusted scale for `valence`
 (2.5 / sd(songs$valence)) * sd(songs$popularity)
+
+# Estimate the model with unadjusted scales
+no_scale <- stan_glm(popularity ~ song_age, data = songs,
+    prior_intercept = normal(autoscale = FALSE),
+    prior = normal(autoscale = FALSE),
+    prior_aux = exponential(autoscale = FALSE)
+)
+
+# Print the prior summary
+prior_summary(no_scale)
