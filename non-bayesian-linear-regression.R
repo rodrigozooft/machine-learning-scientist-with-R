@@ -116,3 +116,15 @@ ss_fit <- var(fitted(stan_model))
 
 # Calculate the R-squared
 1 - (ss_res / (ss_res + ss_fit))
+
+# Calculate posterior predictive scores
+predictions <- posterior_linpred(stan_model)
+
+# Print a summary of the observed data
+summary(songs$popularity)
+
+# Print a summary of the 1st replication
+summary(predictions[1,])
+
+# Print a summary of the 10th replication
+summary(predictions[10,])
