@@ -69,3 +69,10 @@ no_scale <- stan_glm(popularity ~ song_age, data = songs,
 
 # Print the prior summary
 prior_summary(no_scale)
+
+# Estimate a model with flat priors
+flat_prior <- stan_glm(popularity ~  song_age, data = songs,
+    prior_intercept = NULL, prior = NULL, prior_aux = NULL)
+
+# Print a prior summary
+prior_summary(flat_prior)
