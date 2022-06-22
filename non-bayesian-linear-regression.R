@@ -44,3 +44,9 @@ model_2chains <- stan_glm(popularity ~ song_age, data = songs,
 
 # Print a summary of model_2chains
 summary(model_2chains)
+
+# Estimate the model
+stan_model <- stan_glm(popularity ~ song_age, data = songs)
+
+# Print a summary of the prior distributions
+prior_summary(stan_model)
