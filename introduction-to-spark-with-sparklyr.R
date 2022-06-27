@@ -61,3 +61,13 @@ tryCatch({
   },
   error = print
 )
+
+# track_metadata_tbl has been pre-defined
+glimpse(track_metadata_tbl)
+
+# Manipulate the track metadata
+track_metadata_tbl %>%
+  # Select columns
+  select(artist_name, release, title, year) %>%
+  # Filter rows
+  filter(year >= 1960 & year < 1970)
