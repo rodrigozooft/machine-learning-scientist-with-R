@@ -129,3 +129,10 @@ track_metadata_tbl %>%
 track_metadata_tbl %>%
   # Select columns matching ti.?t
   select(matches('ti.?t'))
+
+# track_metadata_tbl has been pre-defined
+track_metadata_tbl
+
+track_metadata_tbl %>%
+  # Only return rows with distinct artist_name
+  distinct(artist_name)
