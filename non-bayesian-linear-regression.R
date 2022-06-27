@@ -186,3 +186,15 @@ posteriors <- posterior_predict(stan_model)
 
 # Print 10 predicted scores for 5 songs
 posteriors[1:10, 1:5]
+
+# Create data frame of new data
+predict_data <- data.frame(song_age =  663, artist_name = "Beyoncé")
+
+# Create posterior predictions for Lemonade album
+new_predictions <- posterior_predict(stan_model, newdata = predict_data)
+
+# Print first 10 predictions for the new data
+new_predictions[1:10,]
+
+# Print a summary of the posterior distribution of predicted popularity
+summary(new_predictions[, 1])
