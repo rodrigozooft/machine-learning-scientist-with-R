@@ -145,3 +145,20 @@ track_metadata_tbl %>%
   count(artist_name) %>%
   # Restrict to top 20
   top_n(20)  
+
+# track_metadata_tbl has been pre-defined
+track_metadata_tbl
+
+results <- track_metadata_tbl %>%
+  # Filter where artist familiarity is greater than 0.9
+  filter(artist_familiarity > 0.9)
+
+# Examine the class of the results
+class(results)
+
+# Collect your results
+collected <- results %>%
+  collect()
+
+# Examine the class of the collected results
+class(collected)
