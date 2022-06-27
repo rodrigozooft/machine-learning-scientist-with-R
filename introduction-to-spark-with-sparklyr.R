@@ -177,3 +177,20 @@ src_tbls(spark_conn)
 
 # Examine the class of the computed results
 class(computed)
+
+# track_metadata_tbl has been pre-defined
+track_metadata_tbl
+
+duration_by_artist <- track_metadata_tbl %>%
+  # Group by artist
+  group_by(artist_name) %>%
+  # Calc mean duration
+  summarize(mean_duration = mean(duration))
+
+duration_by_artist %>%
+  # Sort by ascending mean duration
+  arrange(mean_duration)
+
+duration_by_artist %>%
+  # Sort by descending mean duration
+  arrange(desc(mean_duration))
