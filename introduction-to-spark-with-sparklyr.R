@@ -118,3 +118,14 @@ track_metadata_tbl %>%
 track_metadata_tbl %>%
   # Select columns ending with id
   select(ends_with('id'))
+
+# track_metadata_tbl has been pre-defined
+track_metadata_tbl
+
+track_metadata_tbl %>%
+  # Select columns containing ti
+  select(contains('ti'))
+
+track_metadata_tbl %>%
+  # Select columns matching ti.?t
+  select(matches('ti.?t'))
