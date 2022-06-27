@@ -27,3 +27,12 @@ src_tbls(spark_conn)
 
 # Disconnect from Spark
 spark_disconnect(spark_conn)
+
+# Link to the track_metadata table in Spark
+track_metadata_tbl <- tbl(spark_conn, "track_metadata")
+
+# See how big the dataset is
+dim(track_metadata_tbl)
+
+# See how small the tibble is
+object_size(track_metadata_tbl)
