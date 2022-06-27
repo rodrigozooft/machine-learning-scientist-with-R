@@ -164,3 +164,13 @@ model_slope <- tidy_coef$estimate[2]
 ggplot(songs, aes(x = song_age, y = popularity)) +
   geom_point() +
   geom_abline(intercept = model_intercept, slope = model_slope)
+
+# Save the values from each draw of the posterior distribution
+draws <- spread_draws(stan_model, `(Intercept)`, `song_age`)
+
+# Create the plot
+ggplot(songs, aes(x = song_age, y = popularity)) +
+	geom_point() +
+	geom_abline(data = draws, aes(intercept = `(Intercept)`, slope = song_age),
+                size = 0.1, alpha = 0.2, color = "skyblue") +
+	geom_abline(intercept = model_intercept, slope = model_slope)
