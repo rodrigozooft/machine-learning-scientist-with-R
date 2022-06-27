@@ -211,3 +211,8 @@ plot_posterior <- gather(new_predictions, key = "artist_name", value = "predict"
 
 # Print formated data
 head(plot_posterior)
+
+# Create plot of 
+ggplot(plot_posterior, aes(x = predict)) +
+	facet_wrap(~ artist_name, ncol = 1) +
+	geom_density()
