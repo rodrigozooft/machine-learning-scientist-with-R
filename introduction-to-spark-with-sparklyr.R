@@ -221,3 +221,13 @@ joined <- left_join(track_metadata_tbl, artist_terms_tbl, by = "artist_id")
 
 # How many rows and columns are in the joined table?
 dim(joined)
+
+# track_metadata_tbl and artist_terms_tbl have been pre-defined
+track_metadata_tbl
+artist_terms_tbl
+
+# Anti join artist terms to track metadata by artist_id
+joined <- anti_join(track_metadata_tbl, artist_terms_tbl, by = "artist_id")
+
+# How many rows and columns are in the joined table?
+dim(joined)
