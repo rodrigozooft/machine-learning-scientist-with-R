@@ -136,3 +136,12 @@ track_metadata_tbl
 track_metadata_tbl %>%
   # Only return rows with distinct artist_name
   distinct(artist_name)
+
+# track_metadata_tbl has been pre-defined
+track_metadata_tbl
+
+track_metadata_tbl %>%
+  # Count the artist_name values
+  count(artist_name) %>%
+  # Restrict to top 20
+  top_n(20)  
