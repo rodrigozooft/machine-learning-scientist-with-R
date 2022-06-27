@@ -128,3 +128,9 @@ summary(predictions[1,])
 
 # Print a summary of the 10th replication
 summary(predictions[10,])
+
+# Calculate the posterior distribution of the R-squared
+r2_posterior <- bayes_R2(stan_model)
+
+# Make a histogram of the distribution
+hist(r2_posterior)
