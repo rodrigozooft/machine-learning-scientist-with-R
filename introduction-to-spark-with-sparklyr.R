@@ -107,3 +107,14 @@ track_metadata_tbl %>%
   summarize(
     mean_duration_minutes = mean(duration_minutes)
   )
+
+# track_metadata_tbl has been pre-defined
+track_metadata_tbl
+
+track_metadata_tbl %>%
+  # Select columns starting with artist
+  select(starts_with('artist'))
+
+track_metadata_tbl %>%
+  # Select columns ending with id
+  select(ends_with('id'))
