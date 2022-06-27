@@ -45,3 +45,19 @@ str(track_metadata_tbl)
 
 # Examine structure of data
 glimpse(track_metadata_tbl)
+
+# track_metadata_tbl has been pre-defined
+track_metadata_tbl
+
+# Manipulate the track metadata
+track_metadata_tbl %>%
+  # Select columns
+  select(artist_name, release, title, year)
+
+# Try to select columns using [ ]
+tryCatch({
+    # Selection code here
+    track_metadata_tbl[, c("artist_name", "release", "title", "year")]
+  },
+  error = print
+)
