@@ -36,3 +36,12 @@ dim(track_metadata_tbl)
 
 # See how small the tibble is
 object_size(track_metadata_tbl)
+
+# Print 5 rows, all columns
+print(track_metadata_tbl, n = 5, width = Inf)
+
+# Examine structure of tibble
+str(track_metadata_tbl)
+
+# Examine structure of data
+glimpse(track_metadata_tbl)
