@@ -140,3 +140,15 @@ pp_check(stan_model, "dens_overlay")
 
 # Create scatter plot of means and standard deviations
 pp_check(stan_model, "stat_2d")
+
+# Estimate the model with 1 predictor
+model_1pred <- stan_glm(popularity ~ song_age, data = songs)
+
+# Print the LOO estimate for the 1 predictor model
+loo(model_1pred)
+
+# Estimate the model with both predictors
+model_2pred <- stan_glm(popularity ~ song_age * artist_name, data = songs)
+
+# Print the LOO estimates for the 2 predictor model
+loo(model_2pred)
