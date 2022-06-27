@@ -205,3 +205,9 @@ track_metadata_tbl %>%
   mutate(time_since_first_release = year - min(year)) %>%
   # Arrange by descending time since first release
   arrange(desc(time_since_first_release))
+
+# Write SQL query
+query <- "SELECT * FROM track_metadata WHERE year < 1935 AND duration > 300"
+
+# Run the query
+(results <- dbGetQuery(spark_conn, query))
