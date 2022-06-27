@@ -198,3 +198,16 @@ new_predictions[1:10,]
 
 # Print a summary of the posterior distribution of predicted popularity
 summary(new_predictions[, 1])
+
+# View new data predictions
+new_predictions[1:10, ]
+
+# Convert to data frame and rename variables
+new_predictions <- as.data.frame(new_predictions)
+colnames(new_predictions) <- c("Adele", "Taylor Swift", "Beyoncé")
+
+# Create tidy data structure
+plot_posterior <- gather(new_predictions, key = "artist_name", value = "predict")
+
+# Print formated data
+head(plot_posterior)
