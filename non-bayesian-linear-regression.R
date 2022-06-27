@@ -152,3 +152,15 @@ model_2pred <- stan_glm(popularity ~ song_age * artist_name, data = songs)
 
 # Print the LOO estimates for the 2 predictor model
 loo(model_2pred)
+
+# Save the model parameters
+tidy_coef <-tidy(stan_model)
+
+# Extract intercept and slope
+model_intercept <- tidy_coef$estimate[1]
+model_slope <- tidy_coef$estimate[2]
+
+# Create the plot
+ggplot(songs, aes(x = song_age, y = popularity)) +
+  geom_point() +
+  geom_abline(intercept = model_intercept, slope = model_slope)
