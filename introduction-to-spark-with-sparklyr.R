@@ -93,3 +93,17 @@ track_metadata_tbl %>%
   select(title, duration) %>%
   # Mutate columns
   mutate(duration_minutes = duration / 60)
+
+# track_metadata_tbl has been pre-defined
+track_metadata_tbl
+
+# Manipulate the track metadata
+track_metadata_tbl %>%
+  # Select columns
+  select(title, duration) %>%
+  # Mutate columns
+  mutate(duration_minutes = duration / 60) %>%
+  # Summarize columns
+  summarize(
+    mean_duration_minutes = mean(duration_minutes)
+  )
