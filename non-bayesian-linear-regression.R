@@ -174,3 +174,15 @@ ggplot(songs, aes(x = song_age, y = popularity)) +
 	geom_abline(data = draws, aes(intercept = `(Intercept)`, slope = song_age),
                 size = 0.1, alpha = 0.2, color = "skyblue") +
 	geom_abline(intercept = model_intercept, slope = model_slope)
+
+  # Estimate the regression model
+stan_model <- stan_glm(popularity ~ song_age + artist_name, data = songs)
+
+# Print the model summary
+summary(stan_model)
+
+# Get posteriors of predicted scores for each observation
+posteriors <- posterior_predict(stan_model)
+
+# Print 10 predicted scores for 5 songs
+posteriors[1:10, 1:5]
