@@ -134,3 +134,9 @@ r2_posterior <- bayes_R2(stan_model)
 
 # Make a histogram of the distribution
 hist(r2_posterior)
+
+# Create density comparison
+pp_check(stan_model, "dens_overlay")
+
+# Create scatter plot of means and standard deviations
+pp_check(stan_model, "stat_2d")
