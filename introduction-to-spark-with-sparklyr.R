@@ -194,3 +194,14 @@ duration_by_artist %>%
 duration_by_artist %>%
   # Sort by descending mean duration
   arrange(desc(mean_duration))
+
+# track_metadata_tbl has been pre-defined
+track_metadata_tbl
+
+track_metadata_tbl %>%
+  # Group by artist
+  group_by(artist_name) %>%
+  # Calc time since first release
+  mutate(time_since_first_release = year - min(year)) %>%
+  # Arrange by descending time since first release
+  arrange(desc(time_since_first_release))
