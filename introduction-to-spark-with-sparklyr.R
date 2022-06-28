@@ -374,3 +374,12 @@ track_metadata_tbl
 schema %>%
   lapply(function(x) do.call(data_frame, x)) %>%
   bind_rows()
+
+# track_metadata_tbl has been pre-defined
+track_metadata_tbl
+
+track_metadata_tbl %>%
+  # Sample the data without replacement
+  sdf_sample(fraction = 0.01, replacement = FALSE, seed = 20000229) %>%
+  # Compute the result
+  compute("sample_track_metadata")
