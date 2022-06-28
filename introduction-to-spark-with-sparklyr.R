@@ -297,3 +297,18 @@ familiarity_by_duration <- track_metadata_tbl %>%
 # Draw a boxplot of artist_familiarity by duration_bin
 ggplot(familiarity_by_duration, aes(duration_bin, artist_familiarity)) +
   geom_boxplot()
+
+# track_metadata_tbl has been pre-defined
+track_metadata_tbl
+
+title_text <- track_metadata_tbl %>%
+  # Select artist_name, title
+  select(artist_name, title) %>%
+  # Tokenize title to words
+  ft_tokenizer("title", "word") %>%
+  # Collect the result
+  collect() %>%
+  # Flatten the word column 
+  mutate(word = lapply(word, as.character)) %>% 
+  # Unnest the list column
+  unnest(word)
