@@ -336,3 +336,12 @@ sentimental_artists %>%
   arrange(desc(positivity)) %>%
   # Get top 5
   top_n(5)
+
+# track_metadata_tbl has been pre-defined
+track_metadata_tbl
+
+track_metadata_tbl %>%
+  # Select artist_mbid column
+  select(artist_mbid) %>%
+  # Split it by hyphens
+  ft_regex_tokenizer("artist_mbid", "artist_mbid_chunks", pattern = "-")
