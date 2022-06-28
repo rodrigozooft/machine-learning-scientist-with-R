@@ -279,3 +279,21 @@ hotttnesss_over_time <- track_metadata_tbl %>%
 # Draw a boxplot of artist_hotttnesss by decade
 ggplot(hotttnesss_over_time, aes(decade, artist_hotttnesss)) +
   geom_boxplot()  
+
+# track_metadata_tbl, duration_labels have been pre-defined
+track_metadata_tbl
+duration_labels
+
+familiarity_by_duration <- track_metadata_tbl %>%
+  # Select duration and artist_familiarity
+  select(duration, artist_familiarity) %>%
+  # Bucketize duration
+  ft_quantile_discretizer("duration", "duration_bin", n.buckets = 5) %>%
+  # Collect the result
+  collect() %>%
+  # Convert duration bin to factor
+  mutate(duration_bin = factor(duration_bin, labels = duration_labels))
+
+# Draw a boxplot of artist_familiarity by duration_bin
+ggplot(familiarity_by_duration, aes(duration_bin, artist_familiarity)) +
+  geom_boxplot()
