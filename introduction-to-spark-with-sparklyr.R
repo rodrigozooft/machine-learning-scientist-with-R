@@ -312,3 +312,27 @@ title_text <- track_metadata_tbl %>%
   mutate(word = lapply(word, as.character)) %>% 
   # Unnest the list column
   unnest(word)
+
+# title_text_tbl, afinn_sentiments_tbl have been pre-defined
+title_text_tbl
+afinn_sentiments_tbl
+
+sentimental_artists <- title_text_tbl %>%
+  # Inner join with sentiments on word field
+  inner_join(afinn_sentiments_tbl, by = "word") %>%
+  # Group by artist
+  group_by(artist_name) %>%
+  # Summarize to get positivity
+  summarize(positivity = sum(score))
+
+sentimental_artists %>%
+  # Arrange by ascending positivity
+  arrange(positivity) %>%
+  # Get top 5
+  top_n(5)
+
+sentimental_artists %>%
+  # Arrange by descending positivity
+  arrange(desc(positivity)) %>%
+  # Get top 5
+  top_n(5)
