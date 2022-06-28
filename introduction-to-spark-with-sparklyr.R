@@ -363,3 +363,14 @@ microbenchmark(
     collect(),
   times = 5
 )
+
+# track_metadata_tbl has been pre-defined
+track_metadata_tbl
+
+# Get the schema
+(schema <- sdf_schema(track_metadata_tbl))
+
+# Transform the schema
+schema %>%
+  lapply(function(x) do.call(data_frame, x)) %>%
+  bind_rows()
