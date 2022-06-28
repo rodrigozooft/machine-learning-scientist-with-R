@@ -383,3 +383,16 @@ track_metadata_tbl %>%
   sdf_sample(fraction = 0.01, replacement = FALSE, seed = 20000229) %>%
   # Compute the result
   compute("sample_track_metadata")
+
+# track_metadata_tbl has been pre-defined
+track_metadata_tbl
+
+partitioned <- track_metadata_tbl %>%
+  # Partition into training and testing sets
+  sdf_partition(training = 0.7, testing = 0.3)
+
+# Get the dimensions of the training set
+dim(partitioned$training)
+
+# Get the dimensions of the testing set
+dim(partitioned$testing)
