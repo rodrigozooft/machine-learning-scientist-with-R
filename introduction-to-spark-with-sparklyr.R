@@ -345,3 +345,21 @@ track_metadata_tbl %>%
   select(artist_mbid) %>%
   # Split it by hyphens
   ft_regex_tokenizer("artist_mbid", "artist_mbid_chunks", pattern = "-")
+
+# track_metadata_tbl has been pre-defined
+track_metadata_tbl
+
+# Compare timings of arrange() and sdf_sort()
+microbenchmark(
+  arranged = track_metadata_tbl %>%
+    # Arrange by year, then artist_name, then release, then title
+    arrange(year, artist_name, release, title) %>%
+    # Collect the result
+    collect(),
+  sorted = track_metadata_tbl %>%
+    # Sort by year, then artist_name, then release, then title
+    sdf_sort(c("year", "artist_name", "release", "title" ) %>%
+    # Collect the result
+    collect(),
+  times = 5
+)
