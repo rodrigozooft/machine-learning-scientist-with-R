@@ -21,3 +21,16 @@ writeLines(lines, sep = " ")
 
 # Use writeLines() on the string "hello\n\U1F30D"
 writeLines("hello\n\U1F30D")
+
+# Should display: To have a \ you need \\
+writeLines("To have a \\ you need \\\\")
+
+# Should display: 
+# This is a really 
+# really really 
+# long string
+writeLines("This is a really \nreally really \nlong string")
+
+# Use writeLines() with 
+# "\u0928\u092e\u0938\u094d\u0924\u0947 \u0926\u0941\u0928\u093f\u092f\u093e"
+writeLines("\u0928\u092e\u0938\u094d\u0924\u0947 \u0926\u0941\u0928\u093f\u092f\u093e")
