@@ -93,3 +93,15 @@ formatC(percent_change, format = "f", digits = 1, flag = "+")
 
 # Format p_values using format = "g" and digits = 2
 formatC(p_values, format = "g", digits = 2)
+
+# Add $ to pretty_income
+paste("$", pretty_income, sep = "")
+ 
+# Add % to pretty_percent
+paste(pretty_percent, "%", sep = "")
+
+# Create vector with elements like 2010: +4.0%`
+year_percent <- paste(years, ": ", pretty_percent, "%", sep = "")
+
+# Collapse all years into single string
+paste(year_percent, collapse = ", ")
