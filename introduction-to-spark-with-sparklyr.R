@@ -402,3 +402,18 @@ timbre
 
 # Calculate column means
 (mean_timbre <- colMeans(timbre))
+
+# parquet_dir has been pre-defined
+parquet_dir
+
+# List the files in the parquet dir
+filenames <- dir(parquet_dir, full.names = TRUE)
+
+# Show the filenames and their sizes
+data_frame(
+  filename = basename(filenames),
+  size_bytes = file.size(filenames)
+)
+
+# Import the data into Spark
+timbre_tbl <- spark_read_parquet(spark_conn, "timbre", parquet_dir)
