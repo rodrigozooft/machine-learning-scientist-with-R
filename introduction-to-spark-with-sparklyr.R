@@ -417,3 +417,13 @@ data_frame(
 
 # Import the data into Spark
 timbre_tbl <- spark_read_parquet(spark_conn, "timbre", parquet_dir)
+
+# track_metadata_tbl, timbre_tbl pre-defined
+track_metadata_tbl
+timbre_tbl
+
+track_metadata_tbl %>%
+  # Inner join to timbre_tbl
+  inner_join(timbre_tbl, by = "track_id") %>%
+  # Convert year to numeric
+  mutate(year = as.numeric(year))
