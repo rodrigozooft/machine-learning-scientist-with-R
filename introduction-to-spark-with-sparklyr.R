@@ -459,3 +459,21 @@ feature_colnames <- track_data_to_model_tbl %>%
 gradient_boosted_trees_model <- track_data_to_model_tbl %>%
   # Run the gradient boosted trees model
   ml_gradient_boosted_trees("year", feature_colnames)
+
+  # training, testing sets & model are pre-defined
+track_data_to_model_tbl
+track_data_to_predict_tbl
+gradient_boosted_trees_model
+
+responses <- track_data_to_predict_tbl %>%
+  # Select the year column
+  select(year) %>%
+  # Collect the results
+  collect() %>%
+  # Add in the predictions
+  mutate(
+    predicted_year = predict(
+      gradient_boosted_trees_model,
+      track_data_to_predict_tbl
+    )
+  )
