@@ -549,3 +549,12 @@ ggplot(residuals, aes(residual, color = model)) +
     geom_density() +
     # Add a vertical line through zero
     geom_vline(xintercept = 0)
+
+# both_responses has been pre-defined
+both_responses
+
+# Create a residual sum of squares dataset
+both_responses %>%
+    mutate(residual = predicted - actual) %>%
+    group_by(model) %>%
+    summarize(rmse = sqrt(mean(residual ^ 2)))
