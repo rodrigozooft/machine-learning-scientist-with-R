@@ -396,3 +396,9 @@ dim(partitioned$training)
 
 # Get the dimensions of the testing set
 dim(partitioned$testing)
+
+# timbre has been pre-defined
+timbre
+
+# Calculate column means
+(mean_timbre <- colMeans(timbre))
