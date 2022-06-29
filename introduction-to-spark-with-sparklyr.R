@@ -499,3 +499,16 @@ ggplot(residuals, aes(residual)) +
     geom_density() +
     # Add a vertical line through zero
     geom_vline(xintercept = 0)
+
+# track_data_to_model_tbl has been pre-defined
+track_data_to_model_tbl
+
+# Get the timbre columns
+feature_colnames <- track_data_to_model_tbl %>%
+colnames() %>%
+  # Limit to the timbre columns
+  str_subset(fixed("timbre"))
+
+# Run the random forest model
+random_forest_model <- track_data_to_model_tbl %>%
+    ml_random_forest("year", feature_colnames)
