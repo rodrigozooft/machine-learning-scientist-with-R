@@ -528,3 +528,24 @@ responses <- track_data_to_predict_tbl %>%
             track_data_to_predict_tbl
         )
     )
+
+# both_responses has been pre-defined
+both_responses
+
+# Draw a scatterplot of predicted vs. actual
+ggplot(both_responses, aes(actual, predicted, color = model)) +
+  # Add a smoothed line
+  geom_smooth() +
+  # Add a line at actual = predicted
+  geom_abline(intercept = 0, slope = 1)
+
+# Create a tibble of residuals
+residuals <- both_responses %>%
+  mutate(residual = predicted - actual)
+
+# Draw a density plot of residuals
+ggplot(residuals, aes(residual, color = model)) +
+    # Add a density curve
+    geom_density() +
+    # Add a vertical line through zero
+    geom_vline(xintercept = 0)
