@@ -446,3 +446,16 @@ track_data_to_model_tbl <- track_data_tbl %>%
 track_data_to_predict_tbl <- track_data_tbl %>%
   # Inner join to testing partition
   inner_join(training_testing_artist_ids$testing, by = "artist_id")
+
+# track_data_to_model_tbl has been pre-defined
+track_data_to_model_tbl
+
+feature_colnames <- track_data_to_model_tbl %>%
+  # Get the column names
+  colnames() %>%
+  # Limit to the timbre columns
+  str_subset(fixed("timbre"))
+
+gradient_boosted_trees_model <- track_data_to_model_tbl %>%
+  # Run the gradient boosted trees model
+  ml_gradient_boosted_trees("year", feature_colnames)
