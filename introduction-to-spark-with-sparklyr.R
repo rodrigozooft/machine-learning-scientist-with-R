@@ -512,3 +512,19 @@ colnames() %>%
 # Run the random forest model
 random_forest_model <- track_data_to_model_tbl %>%
     ml_random_forest("year", feature_colnames)
+
+# training, testing sets & model are pre-defined
+track_data_to_model_tbl
+track_data_to_predict_tbl
+random_forest_model
+
+# Create a response vs. actual dataset
+responses <- track_data_to_predict_tbl %>%
+    select(year) %>%
+    collect() %>%
+    mutate(
+        predicted_year = predict(
+            random_forest_model,
+            track_data_to_predict_tbl
+        )
+    )
