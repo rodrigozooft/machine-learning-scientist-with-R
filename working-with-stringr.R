@@ -74,3 +74,22 @@ pretty_income <- format(income, digits = 2, big.mark = ",")
 
 # Call writeLines() on the pretty_income
 writeLines(pretty_income)
+
+# From the format() exercise
+x <- c(0.0011, 0.011, 1)
+y <- c(1.0011, 2.011, 1)
+
+# formatC() on x with format = "f", digits = 1
+formatC(x, format = "f", digits = 1)
+
+# formatC() on y with format = "f", digits = 1
+formatC(y, format = "f", digits = 1)
+
+# Format percent_change to one place after the decimal point
+formatC(percent_change, format = "f", digits = 1)
+
+# percent_change with flag = "+"
+formatC(percent_change, format = "f", digits = 1, flag = "+")
+
+# Format p_values using format = "g" and digits = 2
+formatC(p_values, format = "g", digits = 2)
