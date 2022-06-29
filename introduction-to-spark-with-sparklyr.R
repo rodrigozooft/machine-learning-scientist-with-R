@@ -427,3 +427,22 @@ track_metadata_tbl %>%
   inner_join(timbre_tbl, by = "track_id") %>%
   # Convert year to numeric
   mutate(year = as.numeric(year))
+
+# track_data_tbl has been pre-defined
+track_data_tbl
+
+training_testing_artist_ids <- track_data_tbl %>%
+  # Select the artist ID
+  select(artist_id) %>%
+  # Get distinct rows
+  distinct() %>%
+  # Partition into training/testing sets
+  sdf_partition(training = 0.7, testing = 0.3)
+
+track_data_to_model_tbl <- track_data_tbl %>%
+  # Inner join to training partition
+  inner_join(training_testing_artist_ids$training, by = "artist_id")
+
+track_data_to_predict_tbl <- track_data_tbl %>%
+  # Inner join to testing partition
+  inner_join(training_testing_artist_ids$testing, by = "artist_id")
