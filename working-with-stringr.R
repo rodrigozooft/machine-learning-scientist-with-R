@@ -288,3 +288,15 @@ first_names <- both_names_split[, 2]
 
 # Get last names
 last_names <- both_names_split[, 1]
+
+# Split lines into words
+words <- str_split(lines, pattern = fixed(" "))
+
+# Number of words per line
+lapply(words, length)
+  
+# Number of characters in each word
+word_lengths <- lapply(words, str_length)
+  
+# Average word length per line
+lapply(word_lengths, mean)
