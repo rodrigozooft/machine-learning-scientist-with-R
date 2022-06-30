@@ -351,3 +351,33 @@ sex <- subset(babynames_2014$sex, ends_in_ee)
 
 # Display result as a table
 table(sex)
+
+# Some strings to practice with
+x <- c("cat", "coat", "scotland", "tic toc")
+
+# Print END
+END
+
+# Run me
+str_view(x, pattern = START %R% "c")
+
+# Match the strings that start with "co" 
+str_view(x, pattern = START %R% "co")
+
+# Match the strings that end with "at"
+str_view(x, pattern = "at" %R% END )
+
+# Match the string that is exactly "cat"
+str_view(x, pattern = START %R% "cat" %R% END)
+
+# Match two characters, where the second is a "t"
+str_view(x, pattern = ANY_CHAR %R% "t")
+
+# Match two characters, where the second is a "t"
+str_view(x, pattern = ANY_CHAR %R% "t")
+
+# Match two characters
+str_view(x, pattern = ANY_CHAR %R% ANY_CHAR)
+
+# Match a string with exactly three characters
+str_view(x, pattern = START %R% ANY_CHAR %R% ANY_CHAR %R% ANY_CHAR %R% END)
