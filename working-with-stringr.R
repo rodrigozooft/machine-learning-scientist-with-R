@@ -381,3 +381,29 @@ str_view(x, pattern = ANY_CHAR %R% ANY_CHAR)
 
 # Match a string with exactly three characters
 str_view(x, pattern = START %R% ANY_CHAR %R% ANY_CHAR %R% ANY_CHAR %R% END)
+
+pattern <- "q" %R% ANY_CHAR
+
+# Find names that have the pattern
+names_with_q <- str_subset(boy_names, pattern)
+
+# How many names were there?
+length(names_with_q)
+
+# Find part of name that matches pattern
+part_with_q <- str_extract(boy_names, pattern)
+
+# Get a table of counts
+table(part_with_q)
+
+# Did any names have the pattern more than once?
+count_of_q <- str_count(boy_names, pattern)
+
+# Get a table of counts
+table(count_of_q)
+
+# Which babies got these names?
+with_q <- str_detect(boy_names, pattern)
+
+# What fraction of babies got these names?
+mean(with_q)
