@@ -253,3 +253,38 @@ total_as <- number_as + number_As
 
 # girl_names with more than 4 a's
 subset(girl_names, total_as > 4)
+
+# Some date data
+date_ranges <- c("23.01.2017 - 29.01.2017", "30.01.2017 - 06.02.2017")
+
+# Split dates using " - "
+split_dates <- str_split(date_ranges, pattern = fixed(" - "))
+split_dates
+
+# Some date data
+date_ranges <- c("23.01.2017 - 29.01.2017", "30.01.2017 - 06.02.2017")
+
+# Split dates with n and simplify specified
+split_dates_n <- str_split(date_ranges, pattern = fixed(" - "), simplify = TRUE, n = 2)
+split_dates_n
+
+# From previous step
+date_ranges <- c("23.01.2017 - 29.01.2017", "30.01.2017 - 06.02.2017")
+split_dates_n <- str_split(date_ranges, fixed(" - "), n = 2, simplify = TRUE)
+
+# Subset split_dates_n into start_dates and end_dates
+start_dates <- split_dates_n[, 1]
+
+# Split start_dates into day, month and year pieces
+str_split(start_dates, pattern = fixed("."), simplify = TRUE)
+
+both_names <- c("Box, George", "Cox, David")
+
+# Split both_names into first_names and last_names
+both_names_split <- str_split(both_names, pattern = fixed(", "), simplify = TRUE)
+
+# Get first names
+first_names <- both_names_split[, 2]
+
+# Get last names
+last_names <- both_names_split[, 1]
