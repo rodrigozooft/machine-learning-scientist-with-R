@@ -123,3 +123,21 @@ rows <- paste(formatted_names, dollar_income, sep = "   ")
 
 # Write rows
 writeLines(rows)
+
+# Randomly sample 3 toppings
+my_toppings <- sample(toppings, size = 3)
+
+# Print my_toppings
+my_toppings
+
+# Paste "and " to last element: my_toppings_and
+my_toppings_and <- paste(c("", "", "and "), my_toppings, sep = "")
+
+# Collapse with comma space: these_toppings
+these_toppings <- paste(my_toppings_and, collapse = ", ")
+
+# Add rest of sentence: my_order
+my_order <- paste("I want to order a pizza with ", these_toppings, ".", sep = "")
+
+# Order pizza with writeLines()
+writeLines(my_order)
