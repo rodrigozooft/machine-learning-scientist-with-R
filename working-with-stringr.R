@@ -520,3 +520,27 @@ gender <- optional(SPC) %R% or("M", "F")
 
 # Extract age, unit, gender
 str_extract(narratives, pattern = age %R% unit %R% gender)
+
+# age_gender, age, gender, unit are pre-defined
+ls.str()
+
+# Extract age and make numeric
+as.numeric(str_extract(age_gender, pattern = age))
+
+# Replace age and units with ""
+genders <- str_remove(age_gender, pattern = age %R% unit)
+
+# Replace extra spaces
+str_trim(genders)
+
+# Numeric ages, from previous step
+ages_numeric <- as.numeric(str_extract(age_gender, age))
+
+# Extract units 
+time_units <- str_extract(age_gender, pattern = unit)
+
+# Extract first word character
+time_units_clean <- str_extract(time_units, pattern = WRD)
+
+# Turn ages in months to years
+ifelse(time_units_clean == "Y", ages_numeric, ages_numeric / 12)
