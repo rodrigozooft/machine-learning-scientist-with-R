@@ -502,3 +502,21 @@ str_extract(contact, pattern = phone_pattern)
 
 # Extract ALL phone numbers
 str_extract_all(contact, pattern = phone_pattern)
+
+# Use these patterns
+age <- DGT %R% optional(DGT)
+unit <- optional(SPC) %R% or("YO", "YR", "MO")
+
+# Pattern to match gender
+gender <- optional(SPC) %R% or("M", "F")
+
+# Test pattern with age then units then gender
+str_view(narratives, pattern = age %R% unit %R% gender)
+
+# Use these patterns
+age <- DGT %R% optional(DGT)
+unit <- optional(SPC) %R% or("YO", "YR", "MO")
+gender <- optional(SPC) %R% or("M", "F")
+
+# Extract age, unit, gender
+str_extract(narratives, pattern = age %R% unit %R% gender)
