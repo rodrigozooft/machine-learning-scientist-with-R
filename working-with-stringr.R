@@ -447,3 +447,19 @@ mean(num_vowels)
 
 # Calc mean fraction of vowels per name
 mean(num_vowels / name_length)
+
+# Vowels from last exercise
+vowels <- char_class("aeiouAEIOU")
+
+# See names with only vowels
+str_view(boy_names, 
+  pattern = START %R% one_or_more(vowels) %R% END, 
+  match = TRUE)
+
+  # Use `negated_char_class()` for everything but vowels
+not_vowels <- negated_char_class("aeiouAEIOU")
+
+# See names with no vowels
+str_view(boy_names, 
+  pattern = exactly(one_or_more(not_vowels)), 
+  match = TRUE)
