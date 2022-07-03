@@ -544,3 +544,16 @@ time_units_clean <- str_extract(time_units, pattern = WRD)
 
 # Turn ages in months to years
 ifelse(time_units_clean == "Y", ages_numeric, ages_numeric / 12)
+
+# Pattern from previous step
+email <- capture(one_or_more(WRD)) %R% 
+  "@" %R% capture(one_or_more(WRD)) %R% 
+  DOT %R% capture(one_or_more(WRD))
+  
+# Pull out match and captures
+email_parts <- str_match(hero_contacts, pattern = email)
+email_parts
+
+# Save host
+host <- email_parts[, 3]
+host
