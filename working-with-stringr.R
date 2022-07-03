@@ -557,3 +557,23 @@ email_parts
 # Save host
 host <- email_parts[, 3]
 host
+
+# View text containing phone numbers
+contact
+
+# Add capture() to get digit parts
+phone_pattern <- capture(three_digits) %R% zero_or_more(separator) %R% 
+           capture(three_digits) %R% zero_or_more(separator) %R%
+           capture(four_digits)
+           
+# Pull out the parts with str_match()
+phone_numbers <- str_match(contact, pattern = phone_pattern)
+
+# Put them back together
+str_c(
+  "(",
+  phone_numbers[, 2],
+  ") ",
+  phone_numbers[, 3],
+  "-",
+  phone_numbers[, 4])
