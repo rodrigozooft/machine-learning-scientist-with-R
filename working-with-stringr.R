@@ -623,3 +623,15 @@ four_letter_palindrome <- exactly(capture(LOWER) %R% capture(LOWER) %R% REF2 %R%
 
 # Test it
 str_view(boy_names, pattern = four_letter_palindrome, match = TRUE)
+
+# View text containing phone numbers
+contact
+
+# Replace digits with "X"
+str_replace(contact, DGT, "X")
+
+# Replace all digits with "X"
+str_replace_all(contact, DGT, "X")
+
+# Replace all digits with different symbol
+str_replace_all(contact, DGT, c("X", ".", "*", "_"))
