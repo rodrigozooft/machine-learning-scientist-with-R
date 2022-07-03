@@ -599,3 +599,27 @@ str_view(narratives, pattern = pattern2)
 
 # Pull out pieces
 str_match(narratives, pattern = pattern2)
+
+# Names with three repeated letters
+repeated_three_times <- capture(LOWER) %R% REF1 %R% REF1
+
+# Test it
+str_view(boy_names, pattern = repeated_three_times, match = TRUE)
+
+# Names with a pair of repeated letters
+pair_of_repeated <- capture(LOWER %R% LOWER) %R% REF1
+
+# Test it
+str_view(boy_names, pattern = pair_of_repeated, match = TRUE)
+
+# Names with a pair that reverses
+pair_that_reverses <- capture(LOWER) %R% capture(LOWER) %R% REF2 %R% REF1
+
+# Test it
+str_view(boy_names, pattern = pair_that_reverses, match = TRUE)
+
+# Four letter palindrome names
+four_letter_palindrome <- exactly(capture(LOWER) %R% capture(LOWER) %R% REF2 %R% REF1)
+
+# Test it
+str_view(boy_names, pattern = four_letter_palindrome, match = TRUE)
