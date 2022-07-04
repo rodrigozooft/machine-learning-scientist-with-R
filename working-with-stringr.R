@@ -732,3 +732,20 @@ who <- str_extract(lines, pattern = pattern_2)
 
 # Let's see what we have
 unique(who)
+
+# Variables from previous step
+characters <- c("Algernon", "Jack", "Lane", "Cecily", "Gwendolen", "Chasuble", 
+  "Merriman", "Lady Bracknell", "Miss Prism")
+pattern_3 <- START %R% or1(characters) %R% DOT
+
+# Pull out matches
+lines <- str_subset(play_lines, pattern = pattern_3)
+
+# Extract match from lines
+who <- str_extract(lines, pattern = pattern_3)
+
+# Let's see what we have
+unique(who)
+
+# Count lines per character
+table(who)
