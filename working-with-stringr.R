@@ -749,3 +749,32 @@ unique(who)
 
 # Count lines per character
 table(who)
+
+# catcidents has been pre-defined
+head(catcidents)
+
+# Construct pattern of DOG in boundaries
+whole_dog_pattern <- whole_word("DOG")
+
+# See matches to word DOG
+str_view(catcidents, pattern = whole_dog_pattern, match = TRUE)
+
+# From previous step
+whole_dog_pattern <- whole_word("DOG")
+
+# Transform catcidents to upper case
+catcidents_upper <- str_to_upper(catcidents)
+
+# View matches to word "DOG" again
+str_view(catcidents_upper, pattern = whole_dog_pattern, match = TRUE)
+
+# From previous steps
+whole_dog_pattern <- whole_word("DOG")
+catcidents_upper <- str_to_upper(catcidents)
+
+# Which strings match?
+has_dog <- str_detect(catcidents_upper, pattern = whole_dog_pattern)
+
+# Pull out matching strings in original 
+catcidents[has_dog]
+
