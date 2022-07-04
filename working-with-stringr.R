@@ -706,3 +706,29 @@ play_text <- earnest_sub[-intro_line_index]
 
 # Take a look at the first 20 lines
 writeLines(play_text[1:20])
+
+# Pattern for start, word then .
+pattern_1 <- START %R% one_or_more(WRD) %R% DOT
+
+# Test pattern_1
+str_view(play_lines, pattern_1, match = TRUE) 
+str_view(play_lines, pattern_1, match = FALSE)
+
+# Pattern for start, capital, word then .
+pattern_2 <- START %R% ascii_upper() %R% one_or_more(WRD) %R% DOT
+
+# Test pattern_2
+str_view(play_lines, pattern_2, match = TRUE)
+str_view(play_lines, pattern_2, match = FALSE)
+
+# Pattern from last step
+pattern_2 <- START %R% ascii_upper() %R% one_or_more(WRD) %R% DOT
+
+# Get subset of lines that match
+lines <- str_subset(play_lines, pattern = pattern_2)
+
+# Extract match from lines
+who <- str_extract(lines, pattern = pattern_2)
+
+# Let's see what we have
+unique(who)
