@@ -795,3 +795,20 @@ trip <- str_subset(catcidents, pattern = trip_pattern)
 
 # Extract matches
 str_extract(trip, pattern = trip_pattern)
+
+library(stringi)
+
+# Get first five catcidents
+cat5 <- catcidents[1:5]
+
+# Take a look at original
+writeLines(cat5)
+
+# Transform to title case
+writeLines(str_to_title(cat5))
+
+# Transform to title case with stringi
+writeLines(stri_trans_totitle(cat5))
+
+# Transform to sentence case with stringi
+writeLines(stri_trans_totitle(cat5, type = "sentence"))
