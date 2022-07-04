@@ -667,3 +667,42 @@ tay_son_separate
 
 # Match all accents
 str_view_all(tay_son_separate, pattern = UP_DIACRITIC)
+
+# tay_son_separate has been pre-defined
+tay_son_separate
+
+# View all the characters in tay_son_separate
+str_view_all(tay_son_separate, pattern = ANY_CHAR)
+
+# View all the graphemes in tay_son_separate
+str_view_all(tay_son_separate, pattern = GRAPHEME)
+
+# Combine the diacritics with their letters
+tay_son_builtin <- stri_trans_nfc(tay_son_separate)
+tay_son_builtin
+
+# View all the graphemes in tay_son_builtin
+str_view_all(tay_son_builtin, pattern = GRAPHEME)
+
+# Read play in using stri_read_lines()
+earnest <- stri_read_lines(earnest_file)
+
+# Detect start and end lines
+start <- str_which(earnest, fixed("START OF THE PROJECT"))
+end <- str_which(earnest, fixed("END OF THE PROJECT"))
+
+# Get rid of gutenberg intro text
+earnest_sub  <- earnest[(start + 1):(end - 1)]
+
+# Detect first act
+lines_start <- str_which(earnest_sub, fixed("FIRST ACT"))
+
+# Set up index
+intro_line_index <- 1:(lines_start - 1)
+
+# Split play into intro and play
+intro_text <- earnest_sub[intro_line_index]
+play_text <- earnest_sub[-intro_line_index]
+
+# Take a look at the first 20 lines
+writeLines(play_text[1:20])
