@@ -651,3 +651,19 @@ adverbs_10 <- sample(adverbs, 10)
 str_replace(narratives, 
   capture(pattern),
   str_c(adverbs_10, REF1, sep = " "))  
+
+# Names with builtin accents
+(tay_son_builtin <- c(
+  "Nguy\u1ec5n Nh\u1ea1c", 
+  "Nguy\u1ec5n Hu\u1ec7",
+  "Nguy\u1ec5n Quang To\u1ea3n"
+))
+
+# Convert to separate accents
+tay_son_separate <- stri_trans_nfd(tay_son_builtin)
+
+# Verify that the string prints the same
+tay_son_separate
+
+# Match all accents
+str_view_all(tay_son_separate, pattern = UP_DIACRITIC)
