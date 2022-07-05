@@ -70,3 +70,7 @@ languages_html %>%
 languages_html %>% 
 	html_nodes('ul#languages > li') %>% 
 	html_text()
+
+# Select the three divs with a simple selector
+complicated_html %>%
+	html_nodes('div div')
