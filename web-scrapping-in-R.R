@@ -110,3 +110,18 @@ weather_html %>%
 # Select all divs with p descendants having the "third" class
 weather_html %>% 
   html_nodes(xpath = '//div[p[@class = "third"]]')
+
+# Select the text of the second p in every div
+rules_html %>% 
+  html_nodes(xpath = '//div/p[position() = 2]') %>%
+  html_text()
+
+# Select the text of the second p in every div
+rules_html %>% 
+  html_nodes(xpath = '//div/p[position() != 2]') %>%
+  html_text()
+
+# Select the text of the last three nodes of the second div
+rules_html %>% 
+  html_nodes(xpath = '//div[position() = 2]/*[position() >= 2]') %>%
+  html_text()
