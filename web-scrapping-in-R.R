@@ -45,3 +45,10 @@ mountains <- mountains_html %>%
   html_table(header = TRUE, fill = TRUE)
 
 mountains
+
+# Read in the HTML
+languages_html <- read_html(languages_raw_html)
+# Select the div and p tags and print their text
+languages_html %>%
+	html_nodes('div, p') %>%
+	html_text()
