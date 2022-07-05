@@ -125,3 +125,7 @@ rules_html %>%
 rules_html %>% 
   html_nodes(xpath = '//div[position() = 2]/*[position() >= 2]') %>%
   html_text()
+
+# Select only divs with one header and at least two paragraphs
+forecast_html %>%
+	html_nodes(xpath = '//div[count(h2) = 1 and count(p) = 2]')
