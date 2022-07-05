@@ -56,3 +56,7 @@ languages_html %>%
 # Select the first div
 structured_html %>%
   html_nodes('#first')
+
+# This time for real: Select only the last node of the p's wrapped by the div
+nested_html %>%
+	html_nodes('p:last-child.text')
