@@ -74,3 +74,11 @@ languages_html %>%
 # Select the three divs with a simple selector
 complicated_html %>%
 	html_nodes('div div')
+
+# Select only the first code element in the second example
+code_html %>% 
+	html_nodes('h2.second + code')
+
+# Select all code elements in the second example
+code_html %>% 
+	html_nodes('h2.second ~ code')
