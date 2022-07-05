@@ -82,3 +82,19 @@ code_html %>%
 # Select all code elements in the second example
 code_html %>% 
 	html_nodes('h2.second ~ code')
+
+# Select all p elements
+weather_html %>%
+	html_nodes(xpath = '//p')
+
+# Select p elements with the second class
+weather_html %>%
+	html_nodes(xpath = "//p[@class = 'second']")
+
+# Select p elements that are children of "#third"
+weather_html %>%
+	html_nodes(xpath = '//*[@id = "third"]//p')
+
+# Select p elements with class "second" that are children of "#third"
+weather_html %>%
+	html_nodes(xpath = '//*[@id = "third"]//p[@class = "second"]')
