@@ -60,3 +60,13 @@ structured_html %>%
 # This time for real: Select only the last node of the p's wrapped by the div
 nested_html %>%
 	html_nodes('p:last-child.text')
+
+# Extract the text of all list elements
+languages_html %>% 
+	html_nodes('li') %>% 
+	html_text()
+
+# Extract only the text of the computer languages (without the sub lists)
+languages_html %>% 
+	html_nodes('ul#languages > li') %>% 
+	html_text()
