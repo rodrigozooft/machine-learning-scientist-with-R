@@ -21,7 +21,7 @@ ol_node <- list_html %>%
 # Extract and print the nodeset of all the children of ol_node
 ol_node %>%
 	html_children()
-  
+
 # Extract all the a nodes from the bulleted list
 links <- hyperlink_raw_html %>% 
   read_html() %>%
@@ -38,3 +38,10 @@ link_df <- tibble(
 )
 
 link_df
+
+# Extract the "dirty" table into a data frame
+mountains <- mountains_html %>% 
+  html_node("table#dirty") %>% 
+  html_table(header = TRUE, fill = TRUE)
+
+mountains
