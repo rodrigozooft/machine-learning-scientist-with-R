@@ -98,3 +98,15 @@ weather_html %>%
 # Select p elements with class "second" that are children of "#third"
 weather_html %>%
 	html_nodes(xpath = '//*[@id = "third"]//p[@class = "second"]')
+
+  # Select all divs
+weather_html %>% 
+  html_nodes(xpath = '//div')
+
+# Select all divs with p descendants
+weather_html %>% 
+  html_nodes(xpath = '//div[p]')
+
+# Select all divs with p descendants having the "third" class
+weather_html %>% 
+  html_nodes(xpath = '//div[p[@class = "third"]]')
