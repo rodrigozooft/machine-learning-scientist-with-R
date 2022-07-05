@@ -52,3 +52,7 @@ languages_html <- read_html(languages_raw_html)
 languages_html %>%
 	html_nodes('div, p') %>%
 	html_text()
+
+# Select the first div
+structured_html %>%
+  html_nodes('#first')
