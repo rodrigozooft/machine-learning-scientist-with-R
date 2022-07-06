@@ -186,3 +186,8 @@ wikipedia_page %>%
 response <- GET('https://en.wikipedia.org/wiki/Varigott')
 # Print status code of inexistent page
 status_code(response)
+
+# Access https://httpbin.org/headers with httr
+response <- GET("https://httpbin.org/headers")
+# Print its content
+content(response)
