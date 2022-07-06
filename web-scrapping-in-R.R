@@ -170,3 +170,15 @@ programming_html %>%
 	html_nodes(xpath = 'em[text() = "twice"]') %>%
 	# Wander up the tree to select the parent of the em 
     html_nodes(xpath = '..')
+
+# Get the HTML document from Wikipedia using httr
+wikipedia_response <- GET('https://en.wikipedia.org/wiki/Varigotti')
+# Parse the response into an HTML doc
+wikipedia_page <- content(wikipedia_response)
+# Check the status code of the response
+status_code(wikipedia_response)
+
+# Extract the elevation with XPATH
+wikipedia_page %>% 
+	html_nodes(xpath = '//table//tr[position() = 9]/td') %>% 
+	html_text()
