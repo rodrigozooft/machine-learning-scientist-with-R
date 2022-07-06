@@ -154,3 +154,11 @@ functions <- roles_html %>%
   html_nodes(xpath = '//table//td[@class = "role"]/text()') %>%
   html_text(trim = TRUE)
 functions
+
+# Create a new data frame from the extracted vectors
+cast <- tibble(
+  Actor = actors, 
+  Role = roles, 
+  Function = functions)
+
+cast
