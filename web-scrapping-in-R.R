@@ -136,3 +136,21 @@ roles <- roles_html %>%
   html_table()
 # Print the contents of the role data frame
 roles
+
+# Extract the actors in the cells having class "actor"
+actors <- roles_html %>% 
+  html_nodes(xpath = '//table//td[@class = "actor"]') %>%
+  html_text()
+actors
+
+# Extract the roles in the cells having class "role"
+roles <- roles_html %>% 
+  html_nodes(xpath = '//table//td[@class = "role"]/em') %>% 
+  html_text()
+roles
+
+# Extract the functions using the appropriate XPATH function
+functions <- roles_html %>% 
+  html_nodes(xpath = '//table//td[@class = "role"]/text()') %>%
+  html_text(trim = TRUE)
+functions
