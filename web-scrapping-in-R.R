@@ -129,3 +129,10 @@ rules_html %>%
 # Select only divs with one header and at least two paragraphs
 forecast_html %>%
 	html_nodes(xpath = '//div[count(h2) = 1 and count(p) = 2]')
+
+# Extract the data frame from the table using a known function from rvest
+roles <- roles_html %>% 
+  html_node(xpath = "//table") %>% 
+  html_table()
+# Print the contents of the role data frame
+roles
