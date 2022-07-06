@@ -162,3 +162,11 @@ cast <- tibble(
   Function = functions)
 
 cast
+
+# Select all li elements
+programming_html %>%
+	html_nodes(xpath = '//li') %>%
+	# Select all em elements within li elements that have "twice" as text
+	html_nodes(xpath = 'em[text() = "twice"]') %>%
+	# Wander up the tree to select the parent of the em 
+    html_nodes(xpath = '..')
