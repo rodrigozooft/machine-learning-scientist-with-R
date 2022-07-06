@@ -182,3 +182,7 @@ status_code(wikipedia_response)
 wikipedia_page %>% 
 	html_nodes(xpath = '//table//tr[position() = 9]/td') %>% 
 	html_text()
+
+response <- GET('https://en.wikipedia.org/wiki/Varigott')
+# Print status code of inexistent page
+status_code(response)
