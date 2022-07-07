@@ -191,3 +191,15 @@ status_code(response)
 response <- GET("https://httpbin.org/headers")
 # Print its content
 content(response)
+
+# Pass a custom user agent to a GET query to the mentioned URL
+response <- GET("https://httpbin.org/user-agent", user_agent("DataCamp"))
+# Print the response content
+content(response)
+
+# Globally set the user agent to "A request from a DataCamp course on scraping"
+set_config(add_headers(`User-Agent` = "A request from a DataCamp course on scraping"))
+# Pass a custom user agent to a GET query to the mentioned URL
+response <- GET("https://httpbin.org/user-agent")
+# Print the response content
+content(response)
