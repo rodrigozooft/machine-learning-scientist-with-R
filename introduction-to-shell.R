@@ -86,3 +86,10 @@ ci(sample_values)
 f <- function(x, y, z) {
 x + y + z
 }
+
+# Fix the code
+summarise_data <- function(values) {
+  c(mean(values), median(values))
+}
+
+stats <- summarise_data(runif(10))
