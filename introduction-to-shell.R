@@ -35,3 +35,10 @@ get_distribution <- function(N, verbose = TRUE) {
   }
   return(results)
 }
+
+# Create new variable 
+x <- c(1, 1, 1)
+y <- 1:3
+
+# Suppress the warning
+m <- suppressWarnings(cor(x, y))
