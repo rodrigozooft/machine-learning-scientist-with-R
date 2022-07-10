@@ -68,3 +68,16 @@ ci <- function(values) {
   s <- sd(values) 
   c(m - 1.96 * s / sqrt(n), m + 1.96 * s / sqrt(n))
 }
+
+# Define a function to prevent pasting the code above
+ci <- function(x, plot_it = FALSE) {
+  # Plot the data
+  if (isTRUE(plot_it)) hist(x)
+  
+  m <- mean(x); s <- sd(x); n <- length(x)
+  c(m - 1.96 * s/sqrt(n), m + 1.96 * s/sqrt(n))
+}
+
+# Generate 100 normal random numbers
+sample_values <- rnorm(100)
+ci(sample_values)
