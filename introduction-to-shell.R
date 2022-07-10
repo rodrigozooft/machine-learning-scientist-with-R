@@ -104,3 +104,26 @@ getwd()
 # Change to relative paths
 battles <- read_csv("input/battles.csv")
 foes <- read_xlsx("input/foes.xlsx")
+
+library("ggplot2")
+library("readr")
+
+# Show the file/directory structure
+list.files(".")
+
+# Change to relative paths and load the data
+battles <- read_csv("input/battles.csv")
+g <- ggplot(battles) + geom_bar(aes(Location)) # Bar chart
+
+# Change to relative paths and save the data
+ggsave(filename = "graphics/locations.pdf", plot = g)
+
+library("ggplot2")
+library("readr")
+source("R/load.R")
+
+# Create a bar chart
+g <- ggplot(battles) + geom_bar(aes(Location))
+
+# Change to relative paths
+ggsave(filename = "graphics/locations.pdf", plot = g)
