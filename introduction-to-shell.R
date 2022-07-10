@@ -42,3 +42,15 @@ y <- 1:3
 
 # Suppress the warning
 m <- suppressWarnings(cor(x, y))
+
+mean_age = function(ages) {
+  if(any(ages < 0)) {
+    stop("You have negative ages!")
+  }
+  # Stop the execution if any of the ages are over 150
+  if(any(ages > 150)) {
+    stop("It is not your granny")
+  }
+  m = mean(ages)
+  return(m)
+}
