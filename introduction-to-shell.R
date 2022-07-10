@@ -18,3 +18,20 @@ F > TRUE
 data_set <- read.csv("iris.csv", header = F)
 
 suppressPackageStartupMessages(library("dplyr"))
+
+# Suppress the standard output of the simulate() function
+sim = suppressMessages(simulate(runs = 5))
+
+# Modify the function to make it less noisy
+get_distribution <- function(N, verbose = TRUE) {
+  results <- numeric(N)
+  for(i in 1:N) {
+    results[i] <- simulate()
+    # Check if verbose is TRUE
+    if(isTRUE(verbose)) {
+      # Show a progress report
+      message("Simulation ", i, " completed")
+    }
+  }
+  return(results)
+}
