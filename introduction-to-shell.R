@@ -93,3 +93,14 @@ summarise_data <- function(values) {
 }
 
 stats <- summarise_data(runif(10))
+
+# The load.R file
+library("readr")
+library("readxl")
+
+# Print the current working directory
+getwd()
+
+# Change to relative paths
+battles <- read_csv("input/battles.csv")
+foes <- read_xlsx("input/foes.xlsx")
