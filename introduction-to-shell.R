@@ -16,3 +16,5 @@ F > TRUE
 
 # Read in data: don't alter the line below
 data_set <- read.csv("iris.csv", header = F)
+
+suppressPackageStartupMessages(library("dplyr"))
