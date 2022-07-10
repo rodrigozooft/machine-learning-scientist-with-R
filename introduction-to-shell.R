@@ -81,3 +81,8 @@ ci <- function(x, plot_it = FALSE) {
 # Generate 100 normal random numbers
 sample_values <- rnorm(100)
 ci(sample_values)
+
+# Fix the code
+f <- function(x, y, z) {
+x + y + z
+}
