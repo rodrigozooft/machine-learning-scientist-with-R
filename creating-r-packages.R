@@ -21,3 +21,12 @@ numeric_summary <- function(x, na.rm) {
 
 # Test numeric_summary() function
 numeric_summary(airquality$Ozone, na.rm = TRUE)
+
+# What is in the R directory before adding a function?
+dir("datasummary/R")
+
+# Use the dump() function to write the numeric_summary function
+dump("numeric_summary", file = "datasummary/R/numeric_summary.R")
+
+# Verify that the file is in the correct directory
+dir("datasummary/R")
