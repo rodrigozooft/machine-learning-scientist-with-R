@@ -54,3 +54,17 @@ mean_age = function(ages) {
   m = mean(ages)
   return(m)
 }
+
+m <- mean(x); s <- sd(x); n <- length(x)
+c(m - 1.96 * s/sqrt(n), m + 1.96 * s/sqrt(n))
+
+m <- mean(y); s <- sd(y); n <- length(y)
+c(m - 1.96 * s/sqrt(n), m + 1.96 * s/sqrt(n))
+
+# Define a function to prevent pasting the code above
+ci <- function(values) {
+  n <- length(values)
+  m <- mean(values) 
+  s <- sd(values) 
+  c(m - 1.96 * s / sqrt(n), m + 1.96 * s / sqrt(n))
+}
