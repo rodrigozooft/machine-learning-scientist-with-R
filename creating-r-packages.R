@@ -106,3 +106,21 @@ data_summary <- function(x, na.rm = TRUE){
   map_df(num_data, .f = numeric_summary, na.rm = na.rm, .id = "ID")
   
 }
+
+#' Summary of Numeric Columns
+#'
+#' Generate specific summaries of numeric columns in a data frame
+#' 
+#' @param x A data frame. Non-numeric columns will be removed
+#' @param na.rm A logical indicating whether missing values should be removed
+#' @import dplyr
+#' @import purrr
+#' @importFrom tidyr gather
+#' @export data_summary
+data_summary <- function(x, na.rm = TRUE){
+  
+  num_data <- select_if(x, .predicate = is.numeric) 
+  
+  map_df(num_data, .f = numeric_summary, na.rm = na.rm, .id = "ID")
+  
+}
