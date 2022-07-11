@@ -53,3 +53,21 @@ data_summary <- function(x, na.rm = TRUE){
 
 # Write the function to the R directory
 dump("data_summary", file = "datasummary/R/data_summary.R")
+
+# Add a title and description
+#' Numeric Summaries
+#' 
+#' Summarises numeric data and returns a data frame containing the minimum value, median, standard deviation, and maximum value.
+#' 
+#' 
+numeric_summary <- function(x, na.rm){
+
+    if(!is.numeric(x)){
+        stop("Data must be numeric")
+    }
+    
+    data.frame( min = min(x, na.rm = na.rm),
+                median = median(x, na.rm = na.rm),
+                sd = sd(x, na.rm = na.rm),
+                max = max(x, na.rm = na.rm))
+}
