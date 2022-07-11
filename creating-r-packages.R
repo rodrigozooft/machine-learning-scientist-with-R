@@ -89,3 +89,20 @@ numeric_summary <- function(x, na.rm){
                 sd = sd(x, na.rm = na.rm),
                 max = max(x, na.rm = na.rm))
 }
+
+#' Summary of Numeric Columns
+#'
+#' Generate specific summaries of numeric columns in a data frame
+#' 
+#' @param x A data frame. Non-numeric columns will be removed
+#' @param na.rm A logical indicating whether missing values should be removed
+#' @import purrr
+#' @import dplyr
+#' @importFrom tidyr gather
+data_summary <- function(x, na.rm = TRUE){
+  
+  num_data <- select_if(x, .predicate = is.numeric) 
+  
+  map_df(num_data, .f = numeric_summary, na.rm = na.rm, .id = "ID")
+  
+}
