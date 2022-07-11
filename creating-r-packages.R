@@ -71,3 +71,21 @@ numeric_summary <- function(x, na.rm){
                 sd = sd(x, na.rm = na.rm),
                 max = max(x, na.rm = na.rm))
 }
+
+#' Numeric Summaries
+#'
+#' Summarises numeric data and returns a data frame containing the minimum value, median, standard deviation, and maximum value.
+#'
+# Add appropriate tag and details to document the first argument
+#' @param x a numeric vector containing the values to summarize.
+numeric_summary <- function(x, na.rm){
+
+    if(!is.numeric(x)){
+        stop("data must be numeric")
+    }
+    
+    data.frame( min = min(x, na.rm = na.rm),
+                median = median(x, na.rm = na.rm),
+                sd = sd(x, na.rm = na.rm),
+                max = max(x, na.rm = na.rm))
+}
