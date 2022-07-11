@@ -42,3 +42,14 @@ use_vignette("Generating_Summaries_with_Data_Summary", pkg = "datasummary")
 
 # What directories do you now have in your package now?
 dir("datasummary")
+
+data_summary <- function(x, na.rm = TRUE){
+  
+  num_data <- select_if(x, .predicate = is.numeric) 
+  
+  map_df(num_data, .f = numeric_summary, na.rm = TRUE, .id = "ID")
+  
+}
+
+# Write the function to the R directory
+dump("data_summary", file = "datasummary/R/data_summary.R")
