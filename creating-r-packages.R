@@ -30,3 +30,15 @@ dump("numeric_summary", file = "datasummary/R/numeric_summary.R")
 
 # Verify that the file is in the correct directory
 dir("datasummary/R")
+
+# What is in the package at the moment?
+dir("datasummary")
+
+# Add the weather data
+use_data(weather, pkg = "datasummary", overwrite = TRUE)
+
+# Add a vignette called "Generating Summaries with Data Summary"
+use_vignette("Generating_Summaries_with_Data_Summary", pkg = "datasummary")
+
+# What directories do you now have in your package now?
+dir("datasummary")
