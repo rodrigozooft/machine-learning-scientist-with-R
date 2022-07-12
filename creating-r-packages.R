@@ -211,3 +211,11 @@ data_summary <- function(x, na.rm = TRUE){
   map_df(num_data, .f = numeric_summary, na.rm = na.rm, .id = "ID")
   
 }
+
+#' Custom Data Summaries
+#'
+#' Easily generate custom data frame summaries
+#'
+#' @docType package
+#' @name datasummary
+"_PACKAGE"
