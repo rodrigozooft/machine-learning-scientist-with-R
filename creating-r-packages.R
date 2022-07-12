@@ -348,3 +348,19 @@ result <- datasummary:::numeric_summary(weather$Temp, na.rm = TRUE)
 
 # Test that the value returned matches the expected value
 expect_equal(result, expected)
+
+# Use context() and test_that() to group the tests below together
+context("Test data_summary()")
+
+test_that("data_summary() handles errors correctly", {
+
+  # Create a vector
+  my_vector <- 1:10
+
+  # Use expect_error()
+  expect_error(data_summary(my_vector))
+
+  # Use expect_warning()
+  expect_warning(data_summary(airquality, na.rm = FALSE))
+
+})
