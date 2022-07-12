@@ -333,3 +333,9 @@ data_summary(my_vector)
 
 # Test if running data_summary() on this vector returns an error
 expect_error(data_summary(my_vector))
+
+# Run data_summary on the airquality dataset with na.rm set to FALSE
+data_summary(airquality, na.rm = FALSE)
+
+# Use expect_warning to formally test this
+expect_warning(data_summary(airquality, na.rm = FALSE))
