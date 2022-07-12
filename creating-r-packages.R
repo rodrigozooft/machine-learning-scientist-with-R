@@ -324,3 +324,12 @@ expected_result <- list(
 
 # Write a passing test that compares expected_result to result
 expect_equivalent(result, expected_result)
+
+# Create a vector containing the numbers 1 through 10
+my_vector <- 1:10
+
+# Look at what happens when we apply this vector as an argument to data_summary()
+data_summary(my_vector)
+
+# Test if running data_summary() on this vector returns an error
+expect_error(data_summary(my_vector))
