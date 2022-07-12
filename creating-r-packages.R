@@ -232,3 +232,15 @@ data_summary <- function(x, na.rm = TRUE){
 #' }
 #' @source Randomly generated data
 "weather"
+
+# Generate package documentation
+document("datasummary")
+
+# Examine the contents of the man directory
+dir("datasummary/man")
+
+# View the documentation for the data_summary function
+help("data_summary")
+
+# View the documentation for the weather dataset
+help("weather")
