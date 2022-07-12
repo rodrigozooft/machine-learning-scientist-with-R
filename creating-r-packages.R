@@ -308,3 +308,19 @@ summary_rows <- nrow(iris_summary)
 
 # Use expect_equal to test that calling data_summary() on iris returns 4 rows
 expect_equal(summary_rows, 4)
+
+result <- data_summary(weather)
+
+# Update this test so it passes
+expect_equal(result$sd, c(2.1, 3.6), tolerance = 1)
+
+expected_result <- list(
+    ID = c("Day", "Temp"),
+    min = c(1L, 14L),
+    median = c(4L, 19L),
+    sd = c(2.16024689946929, 3.65148371670111),
+    max = c(7L, 24L)
+)
+
+# Write a passing test that compares expected_result to result
+expect_equivalent(result, expected_result)
