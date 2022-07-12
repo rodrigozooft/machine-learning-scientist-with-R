@@ -364,3 +364,6 @@ test_that("data_summary() handles errors correctly", {
   expect_warning(data_summary(airquality, na.rm = FALSE))
 
 })
+
+# Run the tests on the datasummary package
+test("datasummary")
