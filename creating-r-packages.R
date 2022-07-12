@@ -275,3 +275,12 @@ numeric_summary <- function(x, na.rm){
 
 # Update this function call
 utils::globalVariables(c("weather", "Temp"))
+
+# Add dplyr as an imported dependency to the DESCRIPTION file
+use_package("dplyr", pkg = "datasummary")
+
+# Add purrr as an imported dependency to the DESCRIPTION file
+use_package("purrr", pkg = "datasummary")
+
+# Add tidyr as an imported dependency to the DESCRIPTION file
+use_package("tidyr", pkg = "datasummary")
