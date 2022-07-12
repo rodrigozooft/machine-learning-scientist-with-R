@@ -219,3 +219,16 @@ data_summary <- function(x, na.rm = TRUE){
 #' @docType package
 #' @name datasummary
 "_PACKAGE"
+
+#' Random Weather Data
+#'
+#' A dataset containing randomly generated weather data.
+#'
+#' @format A data frame of 7 rows and 3 columns
+#' \describe{
+#'  \item{Day}{Numeric values giving day of the week, 1 = Monday, 7 = Sunday}
+#'  \item{Temp}{Numeric values}
+#'  \item{Weather}{Categorical variable that takes snow, sun r rain}
+#' }
+#' @source Randomly generated data
+"weather"
