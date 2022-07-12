@@ -290,3 +290,12 @@ build("datasummary")
 
 # Examine the contents of the current directory
 dir()
+
+# Set up the test framework
+use_testthat("datasummary")
+
+# Look at the contents of the package root directory
+dir("datasummary")
+
+# Look at the contents of the new folder which has been created 
+dir("datasummary/tests")
