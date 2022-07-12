@@ -339,3 +339,12 @@ data_summary(airquality, na.rm = FALSE)
 
 # Use expect_warning to formally test this
 expect_warning(data_summary(airquality, na.rm = FALSE))
+
+# Expected result
+expected <- data.frame(min = 14L, median = 19L, sd = 3.65148371670111, max = 24L)
+
+# Create variable result by calling numeric summary on the temp column of the weather dataset
+result <- datasummary:::numeric_summary(weather$Temp, na.rm = TRUE)
+
+# Test that the value returned matches the expected value
+expect_equal(result, expected)
