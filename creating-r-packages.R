@@ -284,3 +284,9 @@ use_package("purrr", pkg = "datasummary")
 
 # Add tidyr as an imported dependency to the DESCRIPTION file
 use_package("tidyr", pkg = "datasummary")
+
+# Build the package
+build("datasummary")
+
+# Examine the contents of the current directory
+dir()
