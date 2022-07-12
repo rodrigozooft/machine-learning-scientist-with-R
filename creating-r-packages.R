@@ -264,3 +264,14 @@ numeric_summary <- function(x, na.rm){
               sd = sd(x, na.rm = na.rm),
               max = max(x, na.rm = na.rm))
 }
+
+#' datasummary: Custom Data Summaries
+#'
+#' Easily generate custom data frame summaries
+#'
+#' @docType package
+#' @name datasummary
+"_PACKAGE"
+
+# Update this function call
+utils::globalVariables(c("weather", "Temp"))
